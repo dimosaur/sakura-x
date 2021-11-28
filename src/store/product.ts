@@ -1,0 +1,41 @@
+import {types} from 'mobx-state-tree'
+
+import {Thumbnail} from './common/file'
+
+export const Product = types.model('Product', {
+  id: types.identifierNumber,
+  product_id: types.integer,
+  generic_product_id: types.maybeNull(types.integer),
+  attribute_set_id: types.integer,
+  status: types.integer,
+  visibility: types.integer,
+  stock_qty: types.integer,
+  stock_qty_virtual: types.integer,
+  type_id: types.string,
+  sku: types.string,
+  url: types.string,
+  name: types.string,
+  original_price: types.maybeNull(types.union(types.string, types.number)),
+  final_price: types.maybeNull(types.union(types.string, types.number)),
+  thumbnail: types.string,
+  weight: types.number,
+  product_links: types.array(types.string),
+  merchant: types.string,
+  merchant_slug: types.string,
+  brand_slug: types.string,
+  sort_order: types.integer,
+  weight_sort: types.integer,
+  isNew: types.boolean,
+  hasRestriction: types.maybeNull(types.boolean),
+  hasPixelRestriction: types.maybeNull(types.boolean),
+  hasSilknetAction: types.maybeNull(types.boolean),
+  checkLiveMerchant: types.maybeNull(types.boolean),
+  special_from_date: types.string,
+  special_to_date: types.string,
+  thumb_img: types.maybe(Thumbnail),
+  gallery: types.maybe(types.array(Thumbnail)),
+  pivot: types.model('Product_Pivot', {
+    product_reel_id: types.integer,
+    product_id: types.integer,
+  }),
+})
