@@ -6,13 +6,13 @@ export const File = types.model('File', {
   label: types.optional(types.maybeNull(types.string), null),
 })
 
-export const Thumbnail = types.model('Thumbnail', {
+export const GalleryItem = types.model('GalleryItem', {
   id: types.integer,
   sizes: types.string,
-  files: types.maybe(File),
+  files: File,
   images: types.maybe(
     types.map(
-      types.model('Thumbnail_Images', {
+      types.model('GalleryItem_Images', {
         id: types.integer,
         file_name: types.maybeNull(types.string),
         file: types.maybe(File),

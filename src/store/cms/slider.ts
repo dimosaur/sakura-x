@@ -1,6 +1,6 @@
 import {types} from 'mobx-state-tree'
 
-import {File} from '../common/file'
+import {File} from '../_common/file'
 
 const SlideImg = types.model('CMS_SlideImg', {
   id: types.identifierNumber,
